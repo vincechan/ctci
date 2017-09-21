@@ -4,6 +4,16 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 endif()
 
-set(sources src/test-main.cpp src/ch01.cpp)
+set(sources 
+    src/test-main.cpp 
+    src/ch1.1.cpp
+    src/ch1.2.cpp
+    src/ch1.3.cpp
+    src/ch1.4.cpp
+    src/ch1.5.cpp
+    src/ch1.6.cpp
+    src/ch1.7.cpp
+    src/ch1.8.cpp
+)
 
 add_executable(runtest ${sources})
