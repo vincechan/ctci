@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <string>
 
-
 /**
  * Determine if s2 is a substring of s1.
  */

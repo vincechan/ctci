@@ -1,6 +1,6 @@
 #include "third_party/catch.hpp"
 
-#include < string >
+#include <string>
 
 /**
  * Compress a string using the counts of repeated characters. If compressed

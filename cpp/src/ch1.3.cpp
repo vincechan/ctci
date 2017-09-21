@@ -1,9 +1,9 @@
 #include "third_party/catch.hpp"
 
-#include < algorithm >
-#include < string >
+#include <algorithm>
+#include <string>
 
-bool isPermutation(const std::string &first, const std::string &second) {
+bool isPermutation(const std::string& first, const std::string& second) {
   if (first.size() == second.size()) {
     std::string s1 = first;
     std::sort(s1.begin(), s1.end());

@@ -1,8 +1,7 @@
 #include "third_party/catch.hpp"
 
-#include "test_helper.h"
 #include <vector>
-
+#include "test_helper.h"
 
 /**
  * rotate a NxN matric by 90 degress right

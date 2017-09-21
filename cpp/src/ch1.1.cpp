@@ -1,13 +1,13 @@
 #include "third_party/catch.hpp"
 
-#include < algorithm >
-#include < string >
-#include < unordered_set >
+#include <algorithm>
+#include <string>
+#include <unordered_set>
 
 /**
  * Determine if a given string has all unique characters.
  */
-bool isUnique(const std::string &input) {
+bool isUnique(const std::string& input) {
   std::unordered_set<char> set;
   for (auto character : input) {
     if (set.find(character) != set.end()) {

@@ -1,6 +1,6 @@
 #include "third_party/catch.hpp"
 
-#include < string >
+#include <string>
 
 /**
  * Replace all spaces ' ' within a string with "%20".
@@ -11,7 +11,7 @@
  * input:  "Mr John Smith    "
  * output: "Mr%20John%20Smith"
  */
-void replaceSpaces(std::string &input) {
+void replaceSpaces(std::string& input) {
   int end = input.size() - 1;
   int cur = input.size() - 1;
 

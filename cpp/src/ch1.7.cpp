@@ -1,7 +1,7 @@
 #include "third_party/catch.hpp"
 
-#include "test_helper.h"
 #include <vector>
+#include "test_helper.h"
 
 /**
  * Given a MxN matrix, if an element is zero,  zero out the corresponding row
