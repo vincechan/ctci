@@ -4,7 +4,7 @@
 #include <vector>
 
 /**
- * Determine is two vectors are elementwise equal.
+ * Determine is two matrix as 2d vectors are elementwise equal.
  */
 inline bool isElementwiseEqual(const std::vector<std::vector<int>> &m1,
                                const std::vector<std::vector<int>> &m2) {

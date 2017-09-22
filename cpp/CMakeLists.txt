@@ -14,6 +14,8 @@ set(sources
     src/ch1.6.cpp
     src/ch1.7.cpp
     src/ch1.8.cpp
+    src/ch2.1.cpp
+    src/LinkedList.cpp
 )
 
 add_executable(runtest ${sources})
