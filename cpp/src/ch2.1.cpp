@@ -27,19 +27,6 @@ void removeDuplicates(const LinkedList& list) {
   }
 }
 
-/**
- * Copy all values inside a LinkedList into a vector to facilitate testing.
- */
-std::vector<int> convertLinkedListToVector(const LinkedList& list) {
-  std::vector<int> v;
-  Node* cur = list.head;
-  while (cur != nullptr) {
-    v.push_back(cur->data);
-    cur = cur->next;
-  }
-  return v;
-}
-
 TEST_CASE("ch2.1 removeDuplicates - [3,2,1,3]") {
   std::vector<int> expected = {3, 2, 1};
   LinkedList list;
