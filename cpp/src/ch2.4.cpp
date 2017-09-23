@@ -16,10 +16,13 @@ TEST_CASE("ch2.4 partition") {
   list.insert(5);
   list.insert(2);
   list.insert(4);
-  std::vector<int> expected = {1, 2, 3, 4, 5};
 
   partition(list, 3);
   std::vector<int> actual = convertLinkedListToVector(list);
 
-  REQUIRE(expected == actual);
+  REQUIRE(actual[0] < 3);
+  REQUIRE(actual[1] < 3);
+  REQUIRE(actual[2] == 3);
+  REQUIRE(actual[3] > 3);
+  REQUIRE(actual[4] > 3);
 }
