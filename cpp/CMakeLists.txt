@@ -17,6 +17,10 @@ set(sources
     src/ch2.1.cpp
     src/ch2.2.cpp
     src/ch2.3.cpp
+    src/ch2.4.cpp
+    src/ch2.5.cpp
+    src/ch2.6.cpp
+    src/ch2.7.cpp
     src/LinkedList.cpp
 )
 

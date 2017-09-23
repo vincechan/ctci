@@ -4,15 +4,19 @@
 LinkedList::LinkedList() { this->head = nullptr; }
 
 LinkedList::~LinkedList() {
-  if (head != nullptr) {
-    while (head->next != nullptr) {
-      Node* p = head;
-      head = head->next;
-      delete p;
-    }
-    delete head;
-    head = nullptr;
-  }
+  // HACK: we are corrupting the linked list for ch2.6, which will cause issue
+  // when we free the linked list. Commenting out the freeing of the nodes since
+  // it's the sole purpose of the LinkedList in to faciliate ch2 exercises.
+  //
+  // if (head != nullptr) {
+  //   while (head->next != nullptr) {
+  //     Node* p = head;
+  //     head = head->next;
+  //     delete p;
+  //   }
+  //   delete head;
+  //   head = nullptr;
+  // }
 }
 
 void LinkedList::insert(int data) {
