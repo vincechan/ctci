@@ -1,71 +1,63 @@
 #include "third_party/catch.hpp"
 
+#include <iostream>
+#include <unordered_set>
 #include <vector>
 #include "LinkedList.h"
 #include "test_helper.h"
 
 /**
- * remove duplicates from unsorted linked list
+ * remove duplicates from unsorted linked list. No additional data structure
  */
 void removeDuplicates(const LinkedList& list) {
-  Node* first = list.head;
-
-  while (first != nullptr) {
-    Node* second = first;
-    while (second->next != nullptr) {
-      if (first->data == second->next->data) {
-        // delete duplicate
-        Node* deleteNode = second->next;
-        second->next = second->next->next;
-        delete deleteNode;
-        deleteNode = nullptr;
+  Node* target = list.head;
+  while (target != nullptr) {
+    Node* runner = target;
+    while (runner->next != nullptr) {
+      if (runner->next->value == target->value) {
+        Node* duplicate = runner->next;
+        std::cout << duplicate->value << std::endl;
+        std::cout << runner->next << std::endl;
+        std::cout << runner->next->next << std::endl;
+        runner->next = runner->next->next;
+        // delete duplicate;
       } else {
-        second = second->next;
+        runner = runner->next;
       }
+      std::cout << "runner " << runner->next << std::endl;
     }
-    first = first->next;
+    target = target->next;
   }
 }
 
 TEST_CASE("ch2.1 removeDuplicates - [3,2,1,3]") {
+  // Arrange
+  LinkedList list(std::vector<int>({3, 2, 1, 3}));
   std::vector<int> expected = {3, 2, 1};
-  LinkedList list;
-  list.insert(3);
-  list.insert(2);
-  list.insert(1);
-  list.insert(3);
 
+  // Act
   removeDuplicates(list);
-  std::vector<int> actual = convertLinkedListToVector(list);
 
-  REQUIRE(expected == actual);
+  // Assert
+  REQUIRE(expected == list.toVector());
 }
 
 TEST_CASE("ch2.1 removeDuplicates - [3,3,3,3]") {
+  LinkedList list(std::vector<int>({3, 3, 3, 3}));
   std::vector<int> expected = {3};
-  LinkedList list;
-  list.insert(3);
-  list.insert(3);
-  list.insert(3);
-  list.insert(3);
 
   removeDuplicates(list);
-  std::vector<int> actual = convertLinkedListToVector(list);
 
-  REQUIRE(expected == actual);
+  REQUIRE(expected == list.toVector());
 }
 
 TEST_CASE("ch2.1 removeDuplicates - [3,2,1]") {
+  LinkedList list(std::vector<int>({3, 2, 1}));
   std::vector<int> expected = {3, 2, 1};
-  LinkedList list;
-  list.insert(3);
-  list.insert(2);
-  list.insert(1);
 
   removeDuplicates(list);
-  std::vector<int> actual = convertLinkedListToVector(list);
 
-  REQUIRE(expected == actual);
+  REQUIRE(expected == list.toVector());
 }
 
 TEST_CASE("ch2.1 removeDuplicates - []") {
@@ -73,7 +65,6 @@ TEST_CASE("ch2.1 removeDuplicates - []") {
   LinkedList list;
 
   removeDuplicates(list);
-  std::vector<int> actual = convertLinkedListToVector(list);
 
-  REQUIRE(expected == actual);
+  REQUIRE(expected == list.toVector());
 }

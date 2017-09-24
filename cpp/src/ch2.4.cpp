@@ -10,15 +10,10 @@
 void partition(const LinkedList& list, int x) {}
 
 TEST_CASE("ch2.4 partition") {
-  LinkedList list;
-  list.insert(1);
-  list.insert(3);
-  list.insert(5);
-  list.insert(2);
-  list.insert(4);
+  LinkedList list(std::vector<int>({1, 3, 4, 5, 4}));
 
   partition(list, 3);
-  std::vector<int> actual = convertLinkedListToVector(list);
+  std::vector<int> actual = list.toVector();
 
   REQUIRE(actual[0] < 3);
   REQUIRE(actual[1] < 3);

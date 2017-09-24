@@ -1,8 +1,6 @@
 #include "LinkedList.h"
 #include "third_party/catch.hpp"
 
-LinkedList::LinkedList() { this->head = nullptr; }
-
 LinkedList::~LinkedList() {
   // HACK: we are corrupting the linked list for ch2.6, which will cause issue
   // when we free the linked list. Commenting out the freeing of the nodes since
@@ -19,36 +17,54 @@ LinkedList::~LinkedList() {
   // }
 }
 
-void LinkedList::insert(int data) {
-  if (head == nullptr) {
-    this->head = new Node(data);
-    return;
+Node* LinkedList::find(int targetValue) {
+  Node* runner = this->head;
+  while (runner != nullptr) {
+    if (runner->value == targetValue) {
+      return runner;
+    }
+    runner = runner->next;
   }
-
-  Node* tail = head;
-  while (tail->next != nullptr) {
-    tail = tail->next;
-  }
-  tail->next = new Node(data);
+  return nullptr;
 }
 
-void LinkedList::deleteNode(int value) {
-  if (head->data == value) {
-    Node* deletingNode = head;
-    head = head->next;
-    delete deletingNode;
-    deletingNode = nullptr;
+void LinkedList::push_back(int newValue) {
+  if (head == nullptr) {
+    this->head = new Node(newValue);
     return;
   }
 
-  Node* cursor = head;
-  while (cursor->next != nullptr) {
-    if (cursor->next->data == value) {
-      Node* deletingNode = cursor->next;
-      cursor->next = cursor->next->next;
-      delete deletingNode;
+  Node* runner = head;
+  while (runner->next != nullptr) {
+    runner = runner->next;
+  }
+  runner->next = new Node(newValue);
+}
+
+void LinkedList::push_front(int newValue) {
+  Node* newNode = new Node(this->head, newValue);
+  this->head = newNode;
+}
+
+void LinkedList::remove(int targetValue) {
+  if (this->head == nullptr) {
+    return;
+  }
+
+  if (this->head->value == targetValue) {
+    Node* target = this->head;
+    this->head = this->head->next;
+    delete target;
+  }
+
+  Node* runner = this->head;
+  while (runner->next != nullptr) {
+    if (runner->next->value == targetValue) {
+      Node* target = runner->next;
+      runner->next = runner->next->next;
+      delete target;
       return;
     }
-    cursor = cursor->next;
+    runner = runner->next;
   }
 }

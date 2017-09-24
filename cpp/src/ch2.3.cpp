@@ -19,38 +19,27 @@ void deleteMiddle(const LinkedList& list) {
   }
 
   Node* deleteNode = slow->next;
-  slow->data = slow->next->data;
+  slow->value = slow->next->value;
   slow->next = slow->next->next;
   delete deleteNode;
 }
 
 TEST_CASE("ch2.3 deleteMiddle - [1,2,3,4,5]") {
-  LinkedList list;
-  list.insert(1);
-  list.insert(2);
-  list.insert(3);
-  list.insert(4);
-  list.insert(5);
+  LinkedList list(std::vector<int>({1, 2, 3, 4, 5}));
   std::vector<int> expected = {1, 2, 4, 5};
 
   deleteMiddle(list);
-  std::vector<int> actual = convertLinkedListToVector(list);
 
-  REQUIRE(expected == actual);
+  REQUIRE(expected == list.toVector());
 }
 
 TEST_CASE("ch2.3 deleteMiddle - [1,2,3,4]") {
-  LinkedList list;
-  list.insert(1);
-  list.insert(2);
-  list.insert(3);
-  list.insert(4);
+  LinkedList list(std::vector<int>({1, 2, 3, 4}));
   std::vector<int> expected = {1, 3, 4};
 
   deleteMiddle(list);
-  std::vector<int> actual = convertLinkedListToVector(list);
 
-  REQUIRE(expected == actual);
+  REQUIRE(expected == list.toVector());
 }
 
 TEST_CASE("ch2.3 deleteMiddle - []") {
@@ -58,7 +47,6 @@ TEST_CASE("ch2.3 deleteMiddle - []") {
   std::vector<int> expected;
 
   deleteMiddle(list);
-  std::vector<int> actual = convertLinkedListToVector(list);
 
-  REQUIRE(expected == actual);
+  REQUIRE(expected == list.toVector());
 }

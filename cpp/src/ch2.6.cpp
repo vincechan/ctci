@@ -15,12 +15,8 @@ int findLoop(const LinkedList& list) {
 }
 
 TEST_CASE("ch2.6 findLoop") {
-  LinkedList list;
-  list.insert(1);
-  list.insert(2);
-  list.insert(3);
-  list.insert(4);
-  list.insert(5);
+  LinkedList list(std::vector<int>({1, 2, 3, 4, 5}));
+
   // create the loop so that node 5's next pointer points to node 3
   Node* last = list.head;
   while (last->next != nullptr) {

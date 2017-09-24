@@ -27,16 +27,11 @@ int findKthToLast(const LinkedList& list, int k) {
     p = p->next;
     moves--;
   }
-  return p->data;
+  return p->value;
 }
 
 TEST_CASE("ch2.2 findKthToLast - [1,2,3,4,5]") {
-  LinkedList list;
-  list.insert(1);
-  list.insert(2);
-  list.insert(3);
-  list.insert(4);
-  list.insert(5);
+  LinkedList list(std::vector<int>({1, 2, 3, 4, 5}));
 
   REQUIRE(findKthToLast(list, 0) == 5);
   REQUIRE(findKthToLast(list, 1) == 4);

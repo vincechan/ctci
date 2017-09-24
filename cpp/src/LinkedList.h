@@ -1,37 +1,65 @@
 #ifndef LINKEDLIST_INCLUDED
 #define LINKEDLIST_INCLUDED
 
+#include <iostream>
 #include <vector>
 
 struct Node {
-  int data;
+  int value;
   Node* next;
-  Node(int value) {
-    data = value;
-    next = nullptr;
-  }
-};
-
-class LinkedList {
- public:
-  Node* head;
-  LinkedList();
-  ~LinkedList();
-  void insert(int data);
-  void deleteNode(int data);
+  Node(Node* next, int value) : next(next), value(value) {}
+  Node(int value) : Node(nullptr, value) {}
 };
 
 /**
- * Copy all values inside a LinkedList into a vector to facilitate testing.
+ * A simple LinkedList with various methods to faciliate unit testing.
  */
-inline std::vector<int> convertLinkedListToVector(const LinkedList& list) {
-  std::vector<int> v;
-  Node* cur = list.head;
-  while (cur != nullptr) {
-    v.push_back(cur->data);
-    cur = cur->next;
+class LinkedList {
+ public:
+  Node* head;
+
+  LinkedList() { this->head = nullptr; }
+
+  LinkedList(const std::vector<int>& initialValues) {
+    head = nullptr;
+    for (int i = 0; i < initialValues.size(); i++) {
+      this->push_back(initialValues[i]);
+    }
   }
-  return v;
-}
+
+  ~LinkedList();
+
+  Node* find(int value);
+
+  void push_front(int value);
+
+  void push_back(int value);
+
+  void remove(int value);
+
+  /**
+   * Copy all values into a vector to facilitate testing.
+   */
+  inline std::vector<int> toVector() {
+    std::vector<int> v;
+    Node* runner = this->head;
+    while (runner != nullptr) {
+      v.push_back(runner->value);
+      runner = runner->next;
+    }
+    return v;
+  }
+
+  /**
+   * Print all values
+   */
+  inline void print() {
+    Node* runner = this->head;
+    while (runner != nullptr) {
+      std::cout << runner->value << " ";
+      runner = runner->next;
+    }
+  }
+};
 
 #endif

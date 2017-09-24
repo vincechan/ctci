@@ -8,23 +8,13 @@ bool isPalindrome(const LinkedList& list) {
 }
 
 TEST_CASE("ch2.7 isPalindrome - [1,2,3,2,1]") {
-  LinkedList list;
-  list.insert(1);
-  list.insert(2);
-  list.insert(3);
-  list.insert(2);
-  list.insert(1);
+  LinkedList list(std::vector<int>({1, 2, 3, 2, 1}));
 
   REQUIRE(isPalindrome(list) == true);
 }
 
 TEST_CASE("ch2.7 isPalindrome - [1,2,3,4,5]") {
-  LinkedList list;
-  list.insert(1);
-  list.insert(2);
-  list.insert(3);
-  list.insert(4);
-  list.insert(5);
+  LinkedList list(std::vector<int>({1, 2, 3, 4, 5}));
 
   REQUIRE(isPalindrome(list) == false);
 }
