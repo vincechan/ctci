@@ -9,24 +9,46 @@
 /**
  * remove duplicates from unsorted linked list. No additional data structure
  */
+// void removeDuplicates(const LinkedList& list) {
+//   Node* target = list.head;
+//   while (target != nullptr) {
+//     Node* runner = target;
+//     while (runner->next != nullptr) {
+//       if (runner->next->value == target->value) {
+//         Node* duplicate = runner->next;
+//         std::cout << duplicate->value << std::endl;
+//         std::cout << runner->next << std::endl;
+//         std::cout << runner->next->next << std::endl;
+//         runner->next = runner->next->next;
+//         // delete duplicate;
+//       } else {
+//         runner = runner->next;
+//       }
+//       std::cout << "runner " << runner->next << std::endl;
+//     }
+//     target = target->next;
+//   }
+// }
+
+/**
+ * remove duplicates from unsorted linked list.
+ */
 void removeDuplicates(const LinkedList& list) {
-  Node* target = list.head;
-  while (target != nullptr) {
-    Node* runner = target;
-    while (runner->next != nullptr) {
-      if (runner->next->value == target->value) {
-        Node* duplicate = runner->next;
-        std::cout << duplicate->value << std::endl;
-        std::cout << runner->next << std::endl;
-        std::cout << runner->next->next << std::endl;
-        runner->next = runner->next->next;
-        // delete duplicate;
-      } else {
-        runner = runner->next;
-      }
-      std::cout << "runner " << runner->next << std::endl;
+  if (list.head == nullptr) {
+    return;
+  }
+
+  std::unordered_set<int> set;
+  set.insert(list.head->value);
+  Node* runner = list.head;
+  while (runner->next != nullptr) {
+    if (set.find(runner->next->value) != set.end()) {
+      Node* duplicate = runner->next;
+      runner->next = runner->next->next;
+      delete duplicate;
+    } else {
+      runner = runner->next;
     }
-    target = target->next;
   }
 }
 
