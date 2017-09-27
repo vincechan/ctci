@@ -22,7 +22,7 @@ class LinkedList {
 
   LinkedList(const std::vector<int>& initialValues) {
     head = nullptr;
-    for (int i = 0; i < initialValues.size(); i++) {
+    for (size_t i = 0; i < initialValues.size(); i++) {
       this->push_back(initialValues[i]);
     }
   }
