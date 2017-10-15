@@ -10,9 +10,11 @@
 
 struct TreeNode {
   int value;
+  int childCount;
   TreeNode* left;
   TreeNode* right;
-  TreeNode(int value) : value(value), left(nullptr), right(nullptr) {}
+  TreeNode(int value)
+      : value(value), left(nullptr), right(nullptr), childCount(0) {}
 };
 
 inline void in_order(TreeNode* node, std::vector<int>& result) {
