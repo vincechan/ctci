@@ -13,8 +13,14 @@ struct TreeNode {
   int childCount;
   TreeNode* left;
   TreeNode* right;
-  TreeNode(int value)
-      : value(value), left(nullptr), right(nullptr), childCount(0) {}
+  TreeNode* parent;
+  TreeNode(int value) : TreeNode(nullptr, value) {}
+  TreeNode(TreeNode* parent, int value)
+      : value(value),
+        left(nullptr),
+        right(nullptr),
+        parent(parent),
+        childCount(0) {}
 };
 
 inline void in_order(TreeNode* node, std::vector<int>& result) {
