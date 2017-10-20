@@ -29,7 +29,7 @@ bool isBST(TreeNode* tree) {
     return true;
   }
 
-  for (int i = 1; i < list.size(); i++) {
+  for (size_t i = 1; i < list.size(); i++) {
     if (list[i] < list[i - 1]) {
       return false;
     }
