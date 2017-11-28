@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.5)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
+    set(CMAKE_CXX_STANDARD 14)
 endif()
 
 set(sources 
@@ -37,9 +37,11 @@ set(sources
     src/ch4.7.cpp
     src/ch4.8.cpp
     src/ch4.9.cpp
+    src/ch5.1.cpp
     src/LinkedList.cpp
     src/Stack.cpp
     src/TreeNode.cpp
+    src/Util.cpp
 )
 
 add_executable(runtest ${sources})
