@@ -1,5 +1,8 @@
 #include "third_party/catch.hpp"
 
+/**
+ * Swap the even bits with the odd bits in a given integer
+ */
 int SwapOddEvenBits(int n) {
   int oddBits = n & 0xAAAAAAAA;   // 1010.....
   int evenBits = n & 0x55555555;  // 0101.....
