@@ -38,6 +38,7 @@ set(sources
     src/ch4.8.cpp
     src/ch4.9.cpp
     src/ch5.1.cpp
+    src/ch5.5.cpp
     src/ch5.6.cpp
     src/LinkedList.cpp
     src/Stack.cpp
