@@ -43,6 +43,7 @@ set(sources
     src/ch9.1.cpp
     src/ch9.2.cpp
     src/ch9.3.cpp
+    src/ch9.4.cpp
     src/LinkedList.cpp
     src/Stack.cpp
     src/TreeNode.cpp
